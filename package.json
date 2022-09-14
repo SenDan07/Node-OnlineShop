@@ -1,0 +1,23 @@
+{
+  "name": "node-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SenDan07/Basic-Node-Server.git"
+  },
+  "author": "Dan Rz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SenDan07/Basic-Node-Server/issues"
+  },
+  "homepage": "https://github.com/SenDan07/Basic-Node-Server#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
