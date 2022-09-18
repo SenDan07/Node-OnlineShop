@@ -2,10 +2,20 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const expressHbs = require("express-handlebars");
 
 const app = express();
 
-app.set("view engine", "pug");
+app.engine(
+  "hbs",
+  expressHbs.engine({
+    extname: "hbs",
+    defaultLayout: "main-layout",
+    layoutsDir: "views/layouts",
+  })
+);
+app.set("view engine", "hbs");
+// app.set("view engine", "pug");
 app.set("views", "views");
 
 const adminData = require("./routes/admin");
