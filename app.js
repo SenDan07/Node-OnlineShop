@@ -56,16 +56,17 @@ sequelize
   })
   .then((user) => {
     // return user.createCart();
-    return user
-      .getCart()
-      .then((cart) => {
-        if (!cart) {
-          user.createCart();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // return user
+    //   .getCart()
+    //   .then((cart) => {
+    //     if (!cart) {
+    //       user.createCart();
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+    return user.createCart();
   })
   .then((cart) => {
     app.listen(3000);
