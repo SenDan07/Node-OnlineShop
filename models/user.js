@@ -16,7 +16,7 @@ const userSchema = new Schema({
   },
   resetTokenExpiration: {
     type: String,
-    default: Date.now() + 3600000
+    // default: Date.now() + 3600000
   },
   cart: {
     items: [
