@@ -33,12 +33,12 @@ app.use(
   session({
     secret: "my secret",
     resave: false,
-    saveUninitialized: false, 
+    saveUninitialized: false,
     store: store,
   })
 );
 app.use(csrfProtection);
-app.use(flash())
+app.use(flash());
 
 app.use((req, res, next) => {
   if (!req.session.user) {
@@ -70,4 +70,6 @@ mongoose
     console.log("Connected to mongoose DB");
     app.listen(3000);
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.log(err);
+  });
