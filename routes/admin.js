@@ -15,10 +15,18 @@ router.get("/products", isAuth, adminController.getProducts);
 router.post(
   "/add-product",
   [
-    body("title").isString().isLength({ min: 3 }).trim(),
-    body("imageUrl").isURL(),
-    body("price").isFloat(),
-    body("description").isLength({ min: 5, max: 400 }).trim(),
+    body("title")
+      .isString()
+      .withMessage("Please enter a valid title")
+      .isLength({ min: 3 })
+      .trim()
+      .withMessage("Title must be at least 3 characters long"),
+    body("imageUrl").isURL().withMessage("Please enter a valid URL"),
+    body("price").isFloat().withMessage("Please enter a valid price"),
+    body("description")
+      .isLength({ min: 5, max: 400 })
+      .trim()
+      .withMessage("Description must be between 5 and 400 characters long"),
   ],
   isAuth,
   adminController.postAddProduct
@@ -29,10 +37,18 @@ router.get("/edit-product/:productId", isAuth, adminController.getEditProduct);
 router.post(
   "/edit-product",
   [
-    body("title").isString().isLength({ min: 3 }).trim(),
-    body("imageUrl").isURL(),
-    body("price").isFloat(),
-    body("description").isLength({ min: 5, max: 400 }).trim(),
+    body("title")
+      .isString()
+      .withMessage("Please enter a valid title")
+      .isLength({ min: 3 })
+      .trim()
+      .withMessage("Title must be at least 3 characters long"),
+    body("imageUrl").isURL().withMessage("Please enter a valid URL"),
+    body("price").isFloat().withMessage("Please enter a valid price"),
+    body("description")
+      .isLength({ min: 5, max: 400 })
+      .trim()
+      .withMessage("Description must be between 5 and 400 characters long"),
   ],
   isAuth,
   adminController.postEditProduct
