@@ -262,9 +262,10 @@ form {
 }
 
 .pagination a:hover,
-.pagination a:active {
+.pagination a:active,
+.pagination a.active {
   background: #00695c;
-  color: white
+  color: white;
 }
 
 @media (min-width: 768px) {
