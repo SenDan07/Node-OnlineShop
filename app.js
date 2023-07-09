@@ -9,10 +9,11 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
+const helmet = require('helmet');
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
-const { DB_URL, SESSION_URL } = process.env;
+const { DB_URL, SESSION_URL, PORT } = process.env;
 
 const app = express();
 const store = new MongoDBStore({
@@ -47,6 +48,8 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
+
+app.use(helmet());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
@@ -110,7 +113,7 @@ mongoose
   .connect(`${DB_URL}`)
   .then((result) => {
     console.log('Connected to mongoose DB');
-    app.listen(3000);
+    app.listen(PORT || 3000);
   })
   .catch((err) => {
     console.log(err);
